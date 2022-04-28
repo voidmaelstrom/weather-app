@@ -1,5 +1,5 @@
 const express = require('express');
-const Location = require('../models/Alert');
+const Alert = require('../models/Alert');
 const router = express.Router();
 
 module.exports = router;
