@@ -22,8 +22,8 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/forecast", require("./routes/forecast"));
-app.use("api/location", require("./routes/location"));
-app.use ("api/alerts", require("./routes/alert"));
+app.use("/api/location", require("./routes/location"));
+app.use ("/api/alerts", require("./routes/alert"));
 
 // start listening on server
 const port = process.env.PORT;

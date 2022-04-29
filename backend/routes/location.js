@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET /location/:id (single location)
-router.get('/location/:id', async (req,res) => {
+router.get('/:id', async (req,res) => {
   const { id } = req.params;
   const singleLocation = await Location.findById(id);
   try {
@@ -21,20 +21,31 @@ router.get('/location/:id', async (req,res) => {
   } catch (error) {
       return res.status(500).json({message: "Couldn't retrieve the location"})
   }
-})
+});
 
 // POST /location
-router.post("/location", async (req, res) => {
+router.post("/", async (req, res) => {
   const locationToCreate = await Location.create(req.body);
   try {
       return res.status(201).json(locationToCreate);
   } catch (error) {
-      return res.status(500).json({message: "Couldn't create book"});
+      return res.status(500).json({message: "Couldn't create location"});
+  }
+});
+
+// PUT /location/:id
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const locationToUpdate = await Location.findByIdAndUpdate(id, req.body, {new: true});
+  try {
+      return res.status(202).json(locationToUpdate);
+  } catch (error) {
+      return res.status(500).json({message: "Couldn't update the location"});
   }
 })
 
 // DELETE /location/:id
-router.delete("/location/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const locationToDelete = await Location.findByIdAndDelete(id)
   try {
@@ -42,6 +53,6 @@ router.delete("/location/:id", async (req, res) => {
   } catch (error) {
       return res.status(500).json({message: "Couldn't delete the location"})        
   }
-})
+});
 
 module.exports = router;
