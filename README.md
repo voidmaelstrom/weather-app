@@ -12,11 +12,18 @@
 
 `npm start`
 
-2.) Open a new terminal and cd into the `backend` directory and run the following commands:
+2.) Open a new terminal and cd into the `backend` directory and do the following:
 
-`npm i`
+  a.) Create a `.env` file with the following:
+  ```
+  MONGODB_URL=mongodb://localhost/weather
+  PORT=5000
+  ```
+  b.) Run the following commands (install `nodemon` if you haven't yet with `npm i nodemon`):
 
-`nodemon app.js`
+  `npm i`
+
+  `nodemon app.js`
 
 3.) Open your browser to visit the frontend with this address:
 
