@@ -10,8 +10,6 @@
   justify-content: center;
 }
 
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,66 +24,59 @@
 .Display {
   height: 100vh;
 }
+
 .home {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .current {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .alerts {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .radar {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .history {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .threeDay {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .fiveDay {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
 
 .sevenDay {
   padding-top: 6em;
-  font-size: 1.3vw;
-  font-weight: bold;
+  font-size: .8vw;
   align-content: center;
-  color: rgb(241, 105, 105);
+  color: rgb(72, 146, 243);
 }
