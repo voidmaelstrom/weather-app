@@ -1,14 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
-export default function Search () {
+export default function Alerts () {
     return(
-        <div className="search">
+        <div className="alerts">
             <Container>
                 <Card border="info" >
                     <Card.Body>
                         <Card.Text style={{ fontSize: "2.5em" }}>
-                            Search Results
+                            Alerts!
                         </Card.Text>
                     </Card.Body>
                 </Card>

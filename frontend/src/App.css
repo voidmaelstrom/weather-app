@@ -1,17 +1,16 @@
 .App {
+  background-color: rgb(199, 199, 199);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -24,15 +23,69 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Display {
+  height: 100vh;
+}
+.home {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.current {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
+}
+
+.alerts {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
+}
+
+.radar {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
+}
+
+.history {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
+}
+
+.threeDay {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
+}
+
+.fiveDay {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
+}
+
+.sevenDay {
+  padding-top: 6em;
+  font-size: 1.3vw;
+  font-weight: bold;
+  align-content: center;
+  color: rgb(241, 105, 105);
 }
