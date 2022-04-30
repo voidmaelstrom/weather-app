@@ -13,7 +13,7 @@ import History from './History.js';
 import Radar from './Radar.js';
 import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
-import SevenDay from './3Day.js';
+import SevenDay from './7Day.js';
 
 const NavBar = () => {
     return (
@@ -21,31 +21,18 @@ const NavBar = () => {
             <Navbar bg="light" variant="light" fixed="top" >
             <Container>
             <Nav className="me-auto">
-                <Nav.Link href="/">
+                {/* <Nav.Link href="/">
                     <Link to="/">Home</Link>
-                </Nav.Link>
-                <Nav.Link href="/current">
-                    <Link to="/current">Current</Link>
-                </Nav.Link>
-                <Nav.Link href="/alerts">
-                    <Link to="/alerts">Alerts</Link>
-                </Nav.Link>
-                <Nav.Link href="/history">
-                    <Link to="/history">History</Link>
-                </Nav.Link>
-                <Nav.Link href="/radar">
-                    <Link to="/radar">Radar</Link>
-                </Nav.Link>
+                </Nav.Link> */}
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/current">Current</Nav.Link>
+                <Nav.Link as={Link} to="/alerts">Alerts</Nav.Link>
+                <Nav.Link as={Link} to="/history">History</Nav.Link>
+                <Nav.Link as={Link} to="/radar">Radar</Nav.Link>
                 <NavDropdown title="Forecast" id="forecastDropdown">
-                    <NavDropdown.Item>
-                        <Link to="/3day">3 Day</Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                        <Link to="/5day">5 Day</Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                        <Link to="/7day">7 Day</Link>
-                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/3day">3 Day</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/5day">5 Day</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/7day">7 Day</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
             <Form className="d-flex">
