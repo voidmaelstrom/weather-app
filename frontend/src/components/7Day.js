@@ -1,14 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
-export default function Search () {
+export default function SevenDay () {
     return(
-        <div className="search">
+        <div className="sevenDay">
             <Container>
                 <Card border="info" >
                     <Card.Body>
                         <Card.Text style={{ fontSize: "2.5em" }}>
-                            Search Results
+                            7 Day Forecast
                         </Card.Text>
                     </Card.Body>
                 </Card>

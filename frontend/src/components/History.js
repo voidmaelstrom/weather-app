@@ -1,14 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
-export default function Search () {
+export default function History () {
     return(
-        <div className="search">
+        <div className="history">
             <Container>
                 <Card border="info" >
                     <Card.Body>
                         <Card.Text style={{ fontSize: "2.5em" }}>
-                            Search Results
+                           History
                         </Card.Text>
                     </Card.Body>
                 </Card>
