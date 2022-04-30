@@ -9,7 +9,7 @@ async function getCoords(){
   return pos.coords.latitude, pos.coords.longitude
 }
 
-export const getMyLocation = async () => {
+export const getMyLocationWeather = async () => {
   try {
     const response = await axios.get(`${apiUrl}/services/timeline/${getCoords}?key=${apiKey}`);
     return response;
