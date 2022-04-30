@@ -13,7 +13,7 @@ import History from './History.js';
 import Radar from './Radar.js';
 import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
-import SevenDay from './7Day.js';
+import SevenDay from './3Day.js';
 
 const NavBar = () => {
     return (
@@ -38,19 +38,13 @@ const NavBar = () => {
                 </Nav.Link>
                 <NavDropdown title="Forecast" id="forecastDropdown">
                     <NavDropdown.Item>
-                        <Nav.Link href="/3day">
-                            <Link to="/3day">3 Day</Link>
-                        </Nav.Link>
+                        <Link to="/3day">3 Day</Link>
                     </NavDropdown.Item>
                     <NavDropdown.Item>
-                        <Nav.Link href="/5day">
-                            <Link to="/5day">5 Day</Link>
-                        </Nav.Link>
+                        <Link to="/5day">5 Day</Link>
                     </NavDropdown.Item>
                     <NavDropdown.Item>
-                        <Nav.Link href="/7day">
-                            <Link to="/7day">7 Day</Link>
-                        </Nav.Link>
+                        <Link to="/7day">7 Day</Link>
                     </NavDropdown.Item>
                 </NavDropdown>
             </Nav>
