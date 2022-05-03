@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   return res.json({message: "API Success!"})
 })
 
-app.use("/api/forecast", require("./routes/forecast"));
+app.use("/api/external", require("./routes/external"));
 app.use("/api/location", require("./routes/location"));
 app.use ("/api/alerts", require("./routes/alert"));
 

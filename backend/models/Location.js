@@ -21,7 +21,8 @@ const LocationSchema = Schema(
       required: true
     },
     name: {
-        type: String
+      type: String,
+      unique: true
     }
   }
 )

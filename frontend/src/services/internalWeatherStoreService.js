@@ -1,10 +1,12 @@
 import axios from "axios";
+// require('dotenv').config();
+
 const apiUrl = process.env.WEATHER_APP_API_URL;
 
 export const getAllLocations = async () => {
   try {
-    const response = await axios.get(`${apiUrl}/location`);
-    return response;
+    const response = await axios.get(`/api/location`);
+    return console.log(response);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -21,7 +23,7 @@ export const getAllLocations = async () => {
 
 export const getLocationById = async (id) => {
   try {
-    const response = await axios.get(`${apiUrl}/location/${id}`);
+    const response = await axios.get(`/api/location/${id}`);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -38,7 +40,7 @@ export const getLocationById = async (id) => {
 
 export const putLocationById = async (id) => {
   try {
-    const response = await axios.put(`${apiUrl}/location/${id}`);
+    const response = await axios.put(`/api/location/${id}`);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -55,7 +57,7 @@ export const putLocationById = async (id) => {
 
 export const postLocation = async (locationBody) => {
   try {
-    const response = await axios.post(`${apiUrl}/location`, locationBody);
+    const response = await axios.post(`/api/location`, locationBody);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -70,9 +72,9 @@ export const postLocation = async (locationBody) => {
   }
 }
 
-export const delLocation = async = (id) => {
+export const delLocation = async (id) => {
   try {
-    const response = await axios.delete(`${apiUrl}/location/${id}`);
+    const response = await axios.delete(`/api/location/${id}`);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);

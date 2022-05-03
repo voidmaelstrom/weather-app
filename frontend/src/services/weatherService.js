@@ -1,18 +1,52 @@
 import axios from "axios";
-const apiUrl = process.env.EXTERNAL_API_URL;
-const apiKey = process.env.API_KEY;
+const config = require('../config.json');
+const apiUrl = config.EXTERNAL_API_URL;
+const apiKey = config.API_KEY;
 
-async function getCoords(){
-  pos = await new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject)
+export function getLocation() {
+  return new Promise((resolve,reject) => {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+              console.log('executed')
+              // return resolve(`${position.coords.latitude},${position.coords.longitude}`);
+              return resolve(position);
+          }, function(err) {
+              return reject(err);
+          });
+
+      } else {
+          return reject("Geolocation is not supported by this browser.");
+      }
   })
-  return `${pos.coords.latitude},${pos.coords.longitude}`
 }
 
-export const getMyLocationWeather = async () => {
+(async function() {
+  const coords = await getLocation();
+  console.log(coords);
+  axios.get('/api/location/name/home', {
+  }) ?
+  console.log('home location already set')
+ :
+  axios.post('/api/location', {
+    latitude: coords.coords.latitude,
+    longitude: coords.coords.longitude,
+    type: "Point",
+    coordinates: [
+      coords.coords.latitude,
+      coords.coords.longitude
+    ],
+    name: "home"
+  })
+})().then(() => {
+  console.log("done")
+}).catch((err) => {
+  console.error(err);
+})
+
+export const getLocations = async () => {
   try {
-    const response = await axios.get(`${apiUrl}/services/timeline/${getCoords}?key=${apiKey}`);
-    return response;
+    const response = await axios.get(`/api/location`);
+    return console.log(response);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
