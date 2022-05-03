@@ -28,5 +28,5 @@ app.use ("/api/alerts", require("./routes/alert"));
 // start listening on server
 const port = process.env.PORT;
 app.listen(port, () => {
-    console.log("Server running...");
+    console.log(`Server running... on port ${process.env.PORT}`);
 })
