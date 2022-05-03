@@ -1,12 +1,12 @@
 import axios from "axios";
 // require('dotenv').config();
 
-const apiUrl = process.env.WEATHER_APP_API_URL;
+// const apiUrl = process.env.WEATHER_APP_API_URL;
 
 export const getAllLocations = async () => {
   try {
     const response = await axios.get(`/api/location`);
-    return console.log(response);
+    console.log(response);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -24,6 +24,25 @@ export const getAllLocations = async () => {
 export const getLocationById = async (id) => {
   try {
     const response = await axios.get(`/api/location/${id}`);
+    console.log(response)
+  } catch(error) {
+    if (error.response) { // get response with a status code not in range 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) { // no response
+      console.log(error.request);
+    } else { // Something wrong in setting up the request
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  }
+}
+
+export const getLocationByName = async (name) => {
+  try {
+    const response = await axios.get(`/api/location/name/${name}`);
+    console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -41,6 +60,7 @@ export const getLocationById = async (id) => {
 export const putLocationById = async (id) => {
   try {
     const response = await axios.put(`/api/location/${id}`);
+    console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -58,6 +78,7 @@ export const putLocationById = async (id) => {
 export const postLocation = async (locationBody) => {
   try {
     const response = await axios.post(`/api/location`, locationBody);
+    console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
@@ -75,6 +96,7 @@ export const postLocation = async (locationBody) => {
 export const delLocation = async (id) => {
   try {
     const response = await axios.delete(`/api/location/${id}`);
+    console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log(error.response.data);
