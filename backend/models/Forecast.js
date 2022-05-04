@@ -19,19 +19,18 @@ const ForecastSchema = Schema(
       Type: String,
       Required: true
     },
-      datetime: {
-        Type: Number,
-        Required: true
-      },
-      temp: {
-        Type: Number,
-        Required: true
-      },
-      feelslike: {
-        Type: Number,
-        Required: true
-      }
-    
+    datetime: {
+      Type: Number,
+      Required: true
+    },
+    temp: {
+      Type: Number,
+      Required: true
+    },
+    feelslike: {
+      Type: Number,
+      Required: true
+    }
   }
 )
 
