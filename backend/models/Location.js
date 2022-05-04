@@ -3,6 +3,14 @@ const { model, Schema } = mongoose;
 
 const LocationSchema = Schema(
   {
+    latitude: {
+      type: Number,
+      required: true
+    },
+    longitude: {
+      type: Number,
+      required: true
+    },
     type: {
       type: String,
       enum: ['Point'],
@@ -13,7 +21,8 @@ const LocationSchema = Schema(
       required: true
     },
     name: {
-        type: String
+      type: String,
+      unique: true
     }
   }
 )

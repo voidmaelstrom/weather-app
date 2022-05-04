@@ -23,6 +23,17 @@ router.get('/:id', async (req,res) => {
   }
 });
 
+// GET /location/:name (single location)
+router.get('/name/:name', async (req,res) => {
+  const { name } = req.params;
+  const singleLocation = await Location.find({"name": name});
+  try {
+      return res.status(200).json(singleLocation);
+  } catch (error) {
+      return res.status(500).json({message: "Couldn't retrieve the location"})
+  }
+});
+
 // POST /location
 router.post("/", async (req, res) => {
   const locationToCreate = await Location.create(req.body);
