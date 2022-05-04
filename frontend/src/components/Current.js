@@ -1,18 +1,46 @@
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import React, { useState, useEffect } from "react";
+const config = require('../config.json');
+const apiUrl = config.EXTERNAL_API_URL;
+const apiKey = config.API_KEY;
+
+
+const weatherUrl = `${apiUrl}/services/timeline/kansas%20city?unitGroup=us&include=current&key=${apiKey}`
 
 export default function Current () {
-    return(
+    const [weatherData, setWeatherData] = useState({});
+
+    useEffect(() => {
+        getWeather();
+    }, []);
+
+    const getWeather = async () => {
+        const response = await fetch(weatherUrl);
+        const jsonData = await response.json();
+        setWeatherData(jsonData)
+    };
+
+    console.log(weatherData.currentConditions);
+
+    return (
         <div className="current">
-            <Container>
-                <Card border="info" >
-                    <Card.Body>
-                        <Card.Text style={{ fontSize: "2.5em" }}>
-                            Current Weather
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Container>
-        </div>
+            {weatherData && weatherData.currentConditions ? weatherData.currentConditions.map(weather => {
+            return <Row xs={1} md={1} className="g-4" >
+                <Col>
+                    <Card>
+                        <Card.Body>
+                        <Card.Header>{weather.temp}</Card.Header>
+                            <Card.Text>
+                               
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>               
+            </Row> 
+            }):null
+            }        
+        </div>   
     )
 }
