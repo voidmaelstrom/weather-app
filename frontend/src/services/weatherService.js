@@ -1,5 +1,4 @@
 import axios from "axios";
-const config = require('../config.json');
 
 export function getLocation() {
   return new Promise((resolve,reject) => {
