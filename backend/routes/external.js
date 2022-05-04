@@ -31,11 +31,13 @@ const getHomeLocation = async () => {
 }
 
 router.get('/forecast', (req,res) => {
+  let timeRange = null
+  req.query.timeRange ? timeRange = req.query.timeRange : timeRange = null
   const latLong = req.query.latLong
 
   const options = {
       method: 'GET',
-      url: `${extApiUrl}/services/timeline/${latLong}?key=${apiKey}`
+      url: `${extApiUrl}/services/timeline/${latLong}/${timeRange}?key=${apiKey}`
   }
 
   axios.request(options).then((response) => {
