@@ -31,9 +31,10 @@ const getHomeLocation = async () => {
 }
 
 router.get('/forecast', (req,res) => {
-  let timeRange = null
-  req.query.timeRange ? timeRange = req.query.timeRange : timeRange = null
   const latLong = req.query.latLong
+  let timeRange = null
+  
+  req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
 
   const options = {
       method: 'GET',
