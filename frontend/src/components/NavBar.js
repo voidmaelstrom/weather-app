@@ -14,6 +14,7 @@ import Radar from './Radar.js';
 import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
 import SevenDay from './7Day.js';
+import { getLocation } from '../services/weatherService';
 
 const NavBar = () => {
     return (
@@ -21,9 +22,6 @@ const NavBar = () => {
             <Navbar bg="light" variant="light" fixed="top" >
             <Container>
             <Nav className="me-auto">
-                {/* <Nav.Link href="/">
-                    <Link to="/">Home</Link>
-                </Nav.Link> */}
                 <Nav.Link as={Link} to="/">Home</Nav.Link>
                 <Nav.Link as={Link} to="/current">Current</Nav.Link>
                 <Nav.Link as={Link} to="/alerts">Alerts</Nav.Link>
