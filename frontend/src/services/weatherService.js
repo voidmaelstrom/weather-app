@@ -1,7 +1,5 @@
 import axios from "axios";
 const config = require('../config.json');
-const apiUrl = config.EXTERNAL_API_URL;
-const apiKey = config.API_KEY;
 
 export function getLocation() {
   return new Promise((resolve,reject) => {
@@ -22,6 +20,8 @@ export function getLocation() {
 
 (async function() {
   const coords = await getLocation();
+  localStorage.setItem("lat", coords.coords.latitude)
+  localStorage.setItem("long", coords.coords.longitude)
   console.log(coords);
   axios.get('/api/location/name/home', {
   }) ?
@@ -43,6 +43,21 @@ export function getLocation() {
   console.error(err);
 })
 
+export const getWeatherForecast = () => {
+  const options = {
+      method: 'GET',
+      url: '/api/external/forecast',
+      params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`},
+  }
+
+  axios.request(options).then((response) => {
+      console.log(response.data)
+
+  }).catch((error) => {
+      console.error(error)
+  })
+}
+
 export const getLocations = async () => {
   try {
     const response = await axios.get(`/api/location`);
@@ -59,8 +74,4 @@ export const getLocations = async () => {
     }
     console.log(error.config);
   }
-}
-
-export const getForecast = async () => {
-
 }

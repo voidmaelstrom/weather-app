@@ -1,7 +1,23 @@
 import axios from "axios";
-// require('dotenv').config();
 
-// const apiUrl = process.env.WEATHER_APP_API_URL;
+export const getHomeLocation = async () => {
+  try {
+    const response = await axios.get(`/api/location/name/home`);
+    console.log(`${response.data[0].latitude},${response.data[0].longitude}`);
+    return String(`${response.data[0].latitude},${response.data[0].longitude}`)
+  } catch(error) {
+    if (error.response) { // get response with a status code not in range 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) { // no response
+      console.log(error.request);
+    } else { // Something wrong in setting up the request
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  }
+}
 
 export const getAllLocations = async () => {
   try {
