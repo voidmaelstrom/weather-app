@@ -10,42 +10,43 @@ export default function Current () {
     const [weatherData, setWeatherData] = useState({});
 
     useEffect(() => {
-        getWeatherForecast();
+        getCurrentWeather();
     }, []);
 
-    const getWeatherForecast = () => {
+    const getCurrentWeather = () => {
         const options = {
             method: 'GET',
-            url: '/api/external/forecast',
-            params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
-                     timeRange: ''},
+            url: '/api/external/current',
+            params: {location: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`},
         }
       
         axios.request(options).then((response) => {
-            setWeatherData(response.data)
+            setWeatherData(response.data.currentConditions)
       
         }).catch((error) => {
             console.error(error)
         })
     }
 
+    console.log(weatherData)
+
     return (
         <div className="current">
-            {weatherData && weatherData.currentConditions ? weatherData.currentConditions.map(weather => {
-            return <Row xs={1} md={1} className="g-4" >
-                <Col>
-                    <Card>
-                        <Card.Body>
-                        <Card.Header>{weather.temp}</Card.Header>
-                            <Card.Text>
-                               
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>               
-            </Row> 
-            }):null
-            }        
-        </div>   
+            {weatherData && weatherData ? Object.keys(weatherData).map((key) => {
+                return <Row xs={1} md={1} className="g-4" >
+                    <Col>
+                        <Card>
+                            <Card.Body>
+                            <Card.Header>{key}</Card.Header>
+                                <Card.Text>
+                                    <p>{weatherData[key]}</p>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>          
+                </Row> 
+                }):null
+                }        
+            </div>
     )
 }
