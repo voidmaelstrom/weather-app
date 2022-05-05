@@ -32,7 +32,7 @@ export default function Current () {
 
     return (
         <div className="current">
-            {weatherData && weatherData ? Object.keys(weatherData).map((key) => {
+            {weatherData ? Object.keys(weatherData).map((key) => {
                 return <Row xs={1} md={1} className="g-4" >
                     <Col>
                         <Card>
