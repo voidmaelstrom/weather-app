@@ -34,7 +34,7 @@ export default function FiveDay () {
                 return <Row xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
-                    <Card>
+                    <Card style={{ width: "15rem" }} className="cards">
                         <Card.Body>
                             <Card.Header>{weather.datetime}</Card.Header>
                             <Card.Text>

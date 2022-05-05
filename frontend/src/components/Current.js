@@ -33,7 +33,7 @@ export default function Current () {
             {weatherData ? Object.keys(weatherData).map((key) => {
                 return <Row xs={1} md={1} className="g-4" >
                     <Col>
-                        <Card>
+                        <Card style={{ width: "15rem" }} className="cards">
                             <Card.Body>
                             <Card.Header>{key}</Card.Header>
                                 <Card.Text>
@@ -45,6 +45,6 @@ export default function Current () {
                 </Row> 
                 }):null
                 }        
-            </div>
+        </div>
     )
 }

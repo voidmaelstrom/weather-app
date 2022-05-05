@@ -32,21 +32,42 @@
   color: rgb(72, 146, 243);
 }
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .current {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   padding-top: 10vh;
-  font-size: 1vw;
+  font-size: 2vw;
   align-content: center;
   color: rgb(72, 146, 243);
 }
 
 .alerts {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   padding-top: 10vh;
-  font-size: .8vw;
+  font-size: 2vw;
   align-content: center;
-  color: rgb(72, 146, 243);
+  color: rgb(243, 72, 72);
 }
 
 .radar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   padding-top: 10vh;
   font-size: .8vw;
   align-content: center;
@@ -61,22 +82,37 @@
 }
 
 .threeDay {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   padding-top: 10vh;
-  font-size: .8vw;
+  font-size: 2vw;
   align-content: center;
   color: rgb(72, 146, 243);
 }
 
 .fiveDay {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   padding-top: 10vh;
-  font-size: .8vw;
+  font-size: 2vw;
   align-content: center;
   color: rgb(72, 146, 243);
 }
 
 .sevenDay {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   padding-top: 10vh;
-  font-size: .8vw;
+  font-size: 2vw;
   align-content: center;
   color: rgb(72, 146, 243);
 }

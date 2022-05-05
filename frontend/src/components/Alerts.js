@@ -35,7 +35,7 @@ export default function Alerts () {
                 return <Row xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
-                        <Card>
+                        <Card style={{ width: "15rem" }} className="cards">
                             <Card.Body>
                                 <Card.Header>{alerts}</Card.Header>
                                 <Card.Text>
