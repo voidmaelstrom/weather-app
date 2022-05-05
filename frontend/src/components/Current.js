@@ -28,8 +28,6 @@ export default function Current () {
         })
     }
 
-    console.log(weatherData)
-
     return (
         <div className="current">
             {weatherData ? Object.keys(weatherData).map((key) => {

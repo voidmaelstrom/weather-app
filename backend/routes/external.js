@@ -40,12 +40,12 @@ router.get('/forecast', (req,res) => {
     let latLong = req.query.latLong
     let timeRange = null
 
+
+    // TODO Still debugging here; leaving in for now to reference
     if (!latLong) {
       // awaitHome().then(response => {return latLong = response});
       getHomeLocation().then(response => {console.log(response)})
     }
-
-    console.log(latLong)
 
     req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
   
