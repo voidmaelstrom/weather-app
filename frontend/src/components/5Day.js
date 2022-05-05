@@ -7,6 +7,8 @@ import React, { useState, useEffect } from "react";
 export default function FiveDay () {
 
     const [weatherData, setWeatherData] = useState({});
+    
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     useEffect(() => {
         getWeatherForecast();
@@ -31,16 +33,16 @@ export default function FiveDay () {
     return (
         <div className="fiveDay">
             {weatherData && weatherData.days ? weatherData.days.map(weather => {
-                return <Row xs={1} md={1} className="g-4" >
+                return <Row key={weather.datetimeEpoch} xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
                     <Card>
                         <Card.Body>
-                            <Card.Header>{weather.datetime}</Card.Header>
+                            <Card.Header>{days[new Date(weather.datetime).getDay()]}</Card.Header>
                             <Card.Text>
-                                <p>{weather.description}</p>
-                                <p>Chance of precipitation {weather.precipprob}% </p>
-                                <p>High of {weather.tempmax} <br></br> Low of {weather.tempmin}</p>
+                                <div>{weather.description}</div>
+                                <div>Chance of precipitation {weather.precipprob}% </div>
+                                <div>High of {weather.tempmax} <br></br> Low of {weather.tempmin}</div>
                             </Card.Text>
                         </Card.Body>
                     </Card>
