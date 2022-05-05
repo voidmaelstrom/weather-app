@@ -15,16 +15,15 @@ const ForecastSchema = Schema(
     description: {
       Type: String,
     },
-      datetime: {
-        Type: Number,
-      },
-      temp: {
-        Type: Number,
-      },
-      feelslike: {
-        Type: Number,
-      }
-    
+    datetime: {
+      Type: Number,
+    },
+    temp: {
+      Type: Number,
+    },
+    feelslike: {
+      Type: Number,
+    }
   }
 )
 

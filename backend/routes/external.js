@@ -13,7 +13,6 @@ const getHomeLocation = async () => {
     const response = await axios.get(`${apiUrl}/location/name/home`);
     const dataReturn = await response;
     const coords = `${dataReturn.data[0].latitude},${dataReturn.data[0].longitude}`
-    console.log(coords)
     return coords
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
@@ -30,18 +29,51 @@ const getHomeLocation = async () => {
   }
 }
 
+function awaitHome() {
+  let home = getHomeLocation()
+  return home
+}
+
 router.get('/forecast', (req,res) => {
-  const latLong = req.query.latLong
-  let timeRange = null
+  try {
+
+    let latLong = req.query.latLong
+    let timeRange = null
+
+
+    // TODO Still debugging here; leaving in for now to reference
+    if (!latLong) {
+      // awaitHome().then(response => {return latLong = response});
+      getHomeLocation().then(response => {console.log(response)})
+    }
+
+    req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
   
-  req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
+    const options = {
+        method: 'GET',
+        url: `${extApiUrl}/services/timeline/${latLong}/${timeRange}?key=${apiKey}`
+    }
+  
+    axios.request(options).then((response) => {
+        res.json(response.data)
+    })
+  } catch(error) {
+    console.error(error)
+  }
+})
+
+router.get('/current', (req,res) => {
+  let location = null
+  
+  req.query.location ? location = req.query.location : location = ''
 
   const options = {
       method: 'GET',
-      url: `${extApiUrl}/services/timeline/${latLong}/${timeRange}?key=${apiKey}`
+      url: `${extApiUrl}/services/timeline/${location}?include=current&key=${apiKey}`
   }
 
   axios.request(options).then((response) => {
+      // console.log(response.data.currentConditions)
       res.json(response.data)
 
   }).catch((error) => {
