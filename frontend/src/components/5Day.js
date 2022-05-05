@@ -1,21 +1,33 @@
+import axios from 'axios'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState, useEffect } from "react";
-const config = require('../config.json');
-const apiUrl = config.EXTERNAL_API_URL;
-const apiKey = config.API_KEY;
-const weatherUrl = `${apiUrl}/services/timeline/KansasCity,MO/next4days?key=${apiKey}`
-export default function ThreeDay() {
+
+export default function FiveDay () {
+
     const [weatherData, setWeatherData] = useState({});
+
     useEffect(() => {
-        getWeather();
+        getWeatherForecast();
     }, []);
-    const getWeather = async () => {
-        const response = await fetch(weatherUrl);
-        const jsonData = await response.json();
-        setWeatherData(jsonData)
-    };
+
+    const getWeatherForecast = () => {
+        const options = {
+            method: 'GET',
+            url: '/api/external/forecast',
+            params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
+                     timeRange: 'next4days'},
+        }
+      
+        axios.request(options).then((response) => {
+            setWeatherData(response.data)
+      
+        }).catch((error) => {
+            console.error(error)
+        })
+    }
+
     return (
         <div className="fiveDay">
             {weatherData && weatherData.days ? weatherData.days.map(weather => {
