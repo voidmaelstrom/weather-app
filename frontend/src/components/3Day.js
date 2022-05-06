@@ -7,8 +7,6 @@ import React, { useState, useEffect } from "react";
 export default function ThreeDay() {
     const [weatherData, setWeatherData] = useState({});
 
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    console.log(days)
     useEffect(() => {
         getWeatherForecast();
     }, []);
@@ -35,9 +33,9 @@ export default function ThreeDay() {
                 return <Row key={weather.datetimeEpoch} xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
-                    <Card>
+                    <Card style={{ width: "15rem" }} className="cards">
                         <Card.Body>
-                            <Card.Header>{days[new Date(weather.datetime).getDay()]}</Card.Header>
+                            <Card.Header>{weather.datetime}</Card.Header>
                             <Card.Text>
                                 <div>{weather.description}</div> 
                                 <div>Chance of precipitation {weather.precipprob}% </div>

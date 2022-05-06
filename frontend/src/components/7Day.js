@@ -9,8 +9,6 @@ export default function SevenDay () {
 
     const [weatherData, setWeatherData] = useState({});
 
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
     useEffect(() => {
         getWeatherForecast();
     }, []);
@@ -20,7 +18,7 @@ export default function SevenDay () {
             method: 'GET',
             url: '/api/external/forecast',
             params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
-                     timeRange: 'next7days'},
+                     timeRange: 'next6days'},
         }
       
         axios.request(options).then((response) => {
@@ -37,9 +35,9 @@ export default function SevenDay () {
                 return <Row key={weather.datetimeEpoch} xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
-                    <Card>
+                    <Card style={{ width: "15rem" }} className="cards">
                         <Card.Body>
-                            <Card.Header>{days[new Date(weather.datetime).getDay()]}</Card.Header>
+                            <Card.Header>{weather.datetime}</Card.Header>
                             <Card.Text>
                                 <div>{weather.description}</div>
                                 <div>Chance of precipitation {weather.precipprob}% </div>

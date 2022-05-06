@@ -4,8 +4,6 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState, useEffect } from "react";
 
-// const weatherUrl = `${apiUrl}/services/timeline/kansas%20city?unitGroup=us&include=current&key=${apiKey}`
-
 export default function Current() {
     const [weatherData, setWeatherData] = useState({});
 
