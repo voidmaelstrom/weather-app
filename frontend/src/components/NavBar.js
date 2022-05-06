@@ -14,6 +14,8 @@ import Radar from './Radar.js';
 import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
 import SevenDay from './7Day.js';
+import Search from './Search.js';
+import SearchLocation from './SearchLocation.js';
 import { getLocation } from '../services/weatherService';
 
 const NavBar = () => {
@@ -33,15 +35,7 @@ const NavBar = () => {
                     <NavDropdown.Item as={Link} to="/7day">7 Day</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
-            <Form className="d-flex">
-                <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                />
-            <Button variant="outline-success">Search</Button>
-            </Form>
+            <SearchLocation />
             </Container>
             </Navbar>
             <div className="Display">
@@ -54,6 +48,7 @@ const NavBar = () => {
                     <Route path="/3day" element={<ThreeDay />} />
                     <Route path="/5day" element={<FiveDay />} />
                     <Route path="/7day" element={<SevenDay />} />
+                    <Route path="/search" element={<SevenDay />} />
                 </Routes>
             </div>
         </Router>

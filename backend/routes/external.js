@@ -42,12 +42,14 @@ router.get('/forecast', (req,res) => {
 
 
     // TODO Still debugging here; leaving in for now to reference
-    if (!latLong) {
-      // awaitHome().then(response => {return latLong = response});
-      getHomeLocation().then(response => {console.log(response)})
-    }
+    // if (!latLong) {
+    //   // awaitHome().then(response => {return latLong = response});
+    //   getHomeLocation().then(response => {console.log(response)})
+    // }
 
     req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
+
+    console.log(`${extApiUrl}/services/timeline/${latLong}/${timeRange}?key=${apiKey} API CALL SENT`)
   
     const options = {
         method: 'GET',
@@ -55,6 +57,7 @@ router.get('/forecast', (req,res) => {
     }
   
     axios.request(options).then((response) => {
+        console.log(response.data)
         res.json(response.data)
     })
   } catch(error) {

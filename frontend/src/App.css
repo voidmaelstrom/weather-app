@@ -86,6 +86,18 @@
   color: rgb(72, 146, 243);
 }
 
+.search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 2vw;
+  align-content: center;
+  color: rgb(72, 146, 243);
+}
+
 .history {
   padding-top: 10vh;
   font-size: .8vw;
