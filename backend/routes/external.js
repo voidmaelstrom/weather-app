@@ -58,27 +58,49 @@ router.get('/forecast', (req,res) => {
         res.json(response.data)
     })
   } catch(error) {
-    console.error(error)
+    if (error.response) { // get response with a status code not in range 2xx
+      console.log('ERRORS ARE PRESENT')
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) { // no response
+      // console.log(error.request);
+    } else { // Something wrong in setting up the request
+      // console.log('Error', error.message);
+    }
+    console.log(error.config);
   }
 })
 
 router.get('/current', (req,res) => {
-  let location = null
-  
-  req.query.location ? location = req.query.location : location = ''
+  try {
+    let location = null
+    
+    req.query.location ? location = req.query.location : location = ''
 
-  const options = {
-      method: 'GET',
-      url: `${extApiUrl}/services/timeline/${location}?include=current&key=${apiKey}`
+    const options = {
+        method: 'GET',
+        url: `${extApiUrl}/services/timeline/${location}?include=current&key=${apiKey}`
+    }
+
+    axios.request(options).then((response) => {
+        // console.log(response.data.currentConditions)
+        res.json(response.data)
+
+    })
+  } catch(error) {
+    if (error.response) { // get response with a status code not in range 2xx
+      console.log('ERRORS ARE PRESENT')
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) { // no response
+      // console.log(error.request);
+    } else { // Something wrong in setting up the request
+      // console.log('Error', error.message);
+    }
+    console.log(error.config);
   }
-
-  axios.request(options).then((response) => {
-      // console.log(response.data.currentConditions)
-      res.json(response.data)
-
-  }).catch((error) => {
-      console.error(error)
-  })
 })
 
 async function getMyLocationWeather() {
