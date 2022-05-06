@@ -48,6 +48,8 @@ router.get('/forecast', (req,res) => {
     // }
 
     req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
+
+    console.log(`${extApiUrl}/services/timeline/${latLong}/${timeRange}?key=${apiKey} API CALL SENT`)
   
     const options = {
         method: 'GET',

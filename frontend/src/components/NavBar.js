@@ -1,4 +1,6 @@
-import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
@@ -15,10 +17,45 @@ import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
 import SevenDay from './7Day.js';
 import Search from './Search.js';
-import SearchLocation from './SearchLocation.js';
+// import SearchLocationBar from './SearchLocationBar.js';
 import { getLocation } from '../services/weatherService';
 
 const NavBar = () => {
+
+    let [search, setSeatrch] = useState('')
+    let [weatherData, setWeatherData] = useState({})
+  
+    // const navigate = useNavigate();
+  
+    useEffect(() => {
+      if(search) {
+        getWeatherForecast();
+      }
+    }, [search]);
+  
+    const handleSearch = (e, location) => {
+      e.preventDefault()
+      setSeatrch(location)
+      e.setState('')
+    //   navigate('/search')
+    }
+  
+    const getWeatherForecast = () => {
+      const options = {
+          method: 'GET',
+          url: '/api/external/forecast',
+          params: {latLong: `${search}`},
+      }
+    
+      axios.request(options).then((response) => {
+          setWeatherData(response.data)
+  
+          console.log(response.data)
+      }).catch((error) => {
+          console.error(error)
+      })
+    }
+
     return (
         <Router>
             <Navbar bg="light" variant="light" fixed="top" >
@@ -35,7 +72,16 @@ const NavBar = () => {
                     <NavDropdown.Item as={Link} to="/7day">7 Day</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
-            <SearchLocation />
+            <Form onSubmit={handleSearch} className="d-flex">
+            <FormControl
+                type="search"
+                placeholder="Search Here"
+                className="me-2"
+                aria-label="Search"
+                onClick={(e) => handleSearch(e, e.target.value)}
+            />
+            <Button variant="outline-success">Search</Button>
+            </Form>
             </Container>
             </Navbar>
             <div className="Display">
@@ -48,7 +94,7 @@ const NavBar = () => {
                     <Route path="/3day" element={<ThreeDay />} />
                     <Route path="/5day" element={<FiveDay />} />
                     <Route path="/7day" element={<SevenDay />} />
-                    <Route path="/search" element={<SevenDay />} />
+                    <Route path="/search" element={<Search weatherData={weatherData} />} />
                 </Routes>
             </div>
         </Router>
