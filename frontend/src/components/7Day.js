@@ -19,7 +19,7 @@ export default function SevenDay () {
             method: 'GET',
             url: '/api/external/forecast',
             params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
-                     timeRange: 'next7days'},
+                     timeRange: 'next6days'},
         }
       
         axios.request(options).then((response) => {
