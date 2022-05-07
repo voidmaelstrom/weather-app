@@ -34,7 +34,7 @@ export default function Current() {
                 console.log(key)
                 if (currentKeys.includes(key)) {
                     results.push(
-                        <Row xs={1} md={1} className="g-4" >
+                        <Row xs={1} md={1} className="d-flex p-2" >
                             <Col>
                                 <Card>
                                     <Card.Body>
