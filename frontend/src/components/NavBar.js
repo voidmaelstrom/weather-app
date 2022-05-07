@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link, Routes, Route, useNavigate } from 'react-router-dom';
+import { Link, Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
@@ -17,7 +17,6 @@ import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
 import SevenDay from './7Day.js';
 import Search from './Search.js';
-import { getLocation } from '../services/weatherService';
 
 const NavBar = () => {
 
@@ -30,6 +29,7 @@ const NavBar = () => {
       if(search) {
         getWeatherForecast();
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search]);
   
     const handleSearch = (e, location) => {
