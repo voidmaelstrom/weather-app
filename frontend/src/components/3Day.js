@@ -14,7 +14,7 @@ export default function ThreeDay() {
     const getWeatherForecast = () => {
         const options = {
             method: 'GET',
-            url: '/api/external/forecast',
+            url: `${process.env.WEATHER_APP_API_URL}/api/external/forecast`,
             params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
                      timeRange: 'next2days'},
         }

@@ -22,9 +22,9 @@ export function getLocation() {
   localStorage.setItem("lat", coords.coords.latitude)
   localStorage.setItem("long", coords.coords.longitude)
   console.log(coords);
-  axios.get('/api/location/name/home')
+  axios.get(`${process.env.MONGODB_URL}/api/location/name/home`)
        .then(response => {response.data.length === 0 ? 
-        axios.post('/api/location', {
+        axios.post(`${process.env.MONGODB_URL}/api/location`, {
           latitude: coords.coords.latitude,
           longitude: coords.coords.longitude,
           type: "Point",
@@ -43,7 +43,7 @@ export function getLocation() {
 export const getWeatherForecast = () => {
   const options = {
       method: 'GET',
-      url: '/api/external/forecast',
+      url: `${process.env.WEATHER_APP_API_URL}/api/external/forecast`,
       params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`},
   }
 
@@ -57,7 +57,7 @@ export const getWeatherForecast = () => {
 
 export const getLocations = async () => {
   try {
-    const response = await axios.get(`/api/location`);
+    const response = await axios.get(`${process.env.WEATHER_APP_API_URL}/api/location`);
     return console.log(response);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx

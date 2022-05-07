@@ -41,7 +41,7 @@ const NavBar = () => {
     const getWeatherForecast = () => {
       const options = {
           method: 'GET',
-          url: '/api/external/forecast',
+          url: `${process.env.WEATHER_APP_API_URL}/api/external/forecast`,
           params: {latLong: `${search}`},
       }
     
