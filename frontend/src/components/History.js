@@ -16,8 +16,8 @@ export default function History () {
         const options = {
             method: 'GET',
             url: '/api/external/history',
-            params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`
-                     }
+            params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
+            timeRange: 'last4days'},        
         }
       
         axios.request(options).then((response) => {
@@ -38,13 +38,12 @@ export default function History () {
                         <Card.Body>
                             <Card.Header style={{ fontSize: "23px" }}>{weather.datetime}</Card.Header>
                             <Card.Text>
-                            <div>{weather.description}</div>
-                                <hr></hr>
-                                <div>Chance of precipitation</div>
-                                <div> {weather.precipprob}% </div>
+                            <div>{weather.conditions}</div>
                                 <hr></hr>
                                 <div>High of {weather.tempmax}°F</div>
                                 <div>Low of {weather.tempmin}°F</div>
+                                <hr></hr>
+                                <div>Precipitation {weather.precip}"</div>
                             </Card.Text>
                         </Card.Body>
                     </Card>

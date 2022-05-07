@@ -83,7 +83,7 @@ router.get('/history', (req,res) => {
   
     const options = {
         method: 'GET',
-        url: `${extApiUrl}/services/timeline/${latLong}/last4days&key=${apiKey}`
+        url: `${extApiUrl}/services/timeline/${latLong}/last4days?key=${apiKey}`
     }
 
     axios.request(options).then((response) => {
