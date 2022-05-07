@@ -21,7 +21,6 @@ export default function Alerts () {
       
         axios.request(options).then((response) => {
             setWeatherData(response.data.alerts)
-            console.log(response.data.alerts)
       
         }).catch((error) => {
             console.error(error)

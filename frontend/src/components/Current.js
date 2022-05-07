@@ -31,7 +31,6 @@ export default function Current() {
         const results = []
         if (weatherData) {
             Object.keys(weatherData).map((key) => {
-                console.log(key)
                 if (currentKeys.includes(key)) {
                     results.push(
                         <Row xs={1} md={1} className="d-flex p-2" >

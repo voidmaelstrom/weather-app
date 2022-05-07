@@ -17,7 +17,6 @@ import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
 import SevenDay from './7Day.js';
 import Search from './Search.js';
-// import SearchLocationBar from './SearchLocationBar.js';
 import { getLocation } from '../services/weatherService';
 
 const NavBar = () => {
@@ -55,19 +54,6 @@ const NavBar = () => {
       })
     }
 
-    // State to store value from the input field
-    const [inputValue, setInputValue] = useState("");
-    
-    // Input Field handler
-    const handleUserInput = (e) => {
-        setInputValue(e.target.value);
-    };
-    
-    // Reset Input Field handler
-    const resetInputField = () => {
-        setInputValue("");
-    };
-
     return (
             <><>
             <Navbar bg="light" variant="light" fixed="top">
@@ -91,7 +77,7 @@ const NavBar = () => {
                             className="me-2"
                             aria-label="Search"
                             onClick={(e) => handleSearch(e, e.target.value)} />
-                        <Button onClick={resetInputField} variant="outline-success">Search</Button>
+                        <Button variant="outline-success">Search</Button>
                     </Form>
                 </Container>
             </Navbar>

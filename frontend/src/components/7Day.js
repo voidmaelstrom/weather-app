@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState, useEffect } from "react";
-import { getWeatherForecast } from '../services/weatherService';
 
 export default function SevenDay () {
 
