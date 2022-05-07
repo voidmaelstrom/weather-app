@@ -42,10 +42,10 @@ router.get('/forecast', (req,res) => {
 
 
     // TODO Still debugging here; leaving in for now to reference
-    if (!latLong) {
-      // awaitHome().then(response => {return latLong = response});
-      getHomeLocation().then(response => {console.log(response)})
-    }
+    // if (!latLong) {
+    //   // awaitHome().then(response => {return latLong = response});
+    //   getHomeLocation().then(response => {console.log(response)})
+    // }
 
     req.query.timeRange ? timeRange = req.query.timeRange : timeRange = ''
   
@@ -53,20 +53,24 @@ router.get('/forecast', (req,res) => {
         method: 'GET',
         url: `${extApiUrl}/services/timeline/${latLong}/${timeRange}?key=${apiKey}`
     }
-  
+
     axios.request(options).then((response) => {
         res.json(response.data)
-    })
+    }).catch(function (error) {
+      console.log(error.toJSON());
+    });
+
   } catch(error) {
+      console.warn(error)
     if (error.response) { // get response with a status code not in range 2xx
       console.log('ERRORS ARE PRESENT')
       console.log(error.response.data);
       console.log(error.response.status);
       console.log(error.response.headers);
     } else if (error.request) { // no response
-      // console.log(error.request);
+      console.log(error.request);
     } else { // Something wrong in setting up the request
-      // console.log('Error', error.message);
+      console.log('Error', error.message);
     }
     console.log(error.config);
   }
@@ -87,7 +91,10 @@ router.get('/current', (req,res) => {
         // console.log(response.data.currentConditions)
         res.json(response.data)
 
-    })
+    }).catch(function (error) {
+      console.log(error.toJSON());
+    });
+
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
       console.log('ERRORS ARE PRESENT')
