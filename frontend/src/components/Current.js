@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 export default function Current() {
     const [weatherData, setWeatherData] = useState({});
 
-    const currentKeys = ['temp', 'windspeed', 'humidity']
+    const currentKeys = ['conditions','temp', 'feelslike', 'windspeed', 'humidity', 'sunrise', 'sunset']
 
     useEffect(() => {
         getCurrentWeather();
