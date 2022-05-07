@@ -17,7 +17,6 @@ import ThreeDay from './3Day.js';
 import FiveDay from './5Day.js';
 import SevenDay from './7Day.js';
 import Search from './Search.js';
-// import SearchLocationBar from './SearchLocationBar.js';
 import { getLocation } from '../services/weatherService';
 
 const NavBar = () => {
