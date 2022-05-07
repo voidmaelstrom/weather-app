@@ -34,9 +34,9 @@ export default function FiveDay () {
                 return <Row key={weather.datetimeEpoch} xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
-                    <Card style={{ width: "15rem", height: "21rem" }} className="cards">
+                    <Card style={{ width: "15rem", height: "25rem" }} className="cards">
                         <Card.Body>
-                            <Card.Header>{weather.datetime}</Card.Header>
+                            <Card.Header style={{ fontSize: "3vh" }}>{weather.datetime}</Card.Header>
                             <Card.Text>
                             <div>{weather.description}</div>
                                 <hr></hr>
