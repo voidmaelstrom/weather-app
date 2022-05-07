@@ -1,5 +1,8 @@
+
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Current from './Current.js';
+import FiveDay from './5Day.js';
 
 export default function Home () {
     return(
@@ -12,7 +15,12 @@ export default function Home () {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-            </Container>
+                <body>
+                    <Current />
+                    <FiveDay />
+                </body>
+            </Container> 
         </div>
+        
     )
 }
