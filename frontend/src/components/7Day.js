@@ -32,12 +32,12 @@ export default function SevenDay () {
     return (
         <div className="sevenDay">
             {weatherData && weatherData.days ? weatherData.days.map(weather => {
-                return <Row key={weather.datetimeEpoch} xs={1} md={1} className="g-4" >
+                return <Row key={weather.datetimeEpoch} xs={1} md={1} className="d-flex p-2" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
                     <Card style={{ width: "15rem"}} className="cards">
                         <Card.Body>
-                            <Card.Header style={{ fontSize: "3vh" }}>{weather.datetime}</Card.Header>
+                            <Card.Header style={{ fontSize: "23px" }}>{weather.datetime}</Card.Header>
                             <Card.Text>
                                 <div>{weather.description}</div>
                                 <hr></hr>

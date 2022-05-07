@@ -34,7 +34,7 @@ export default function Alerts () {
             {weatherData.map(alerts => {
                 return <Row xs={1} md={1} className="g-4" >
                     <Col>
-                        <Card style={{ width: "25rem" }} className="cards">
+                        <Card style={{ width: "100vw" }} className="cards">
                             <Card.Body>
                                 <Card.Header>{alerts.headline}</Card.Header>
                                 <Card.Text>
