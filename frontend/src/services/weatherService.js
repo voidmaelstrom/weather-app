@@ -22,10 +22,18 @@ export function getLocation() {
   localStorage.setItem("lat", coords.coords.latitude)
   localStorage.setItem("long", coords.coords.longitude)
   console.log(coords);
-  axios.get('/api/location/name/home', {
-  }) ?
-  console.log('home location already set')
- :
+  axios.get('/api/location/name/home')
+       .then(response => {response.data.length === 0 ? 
+        axios.post('/api/location', {
+          latitude: coords.coords.latitude,
+          longitude: coords.coords.longitude,
+          type: "Point",
+          coordinates: [
+            coords.coords.latitude,
+            coords.coords.longitude
+          ],
+          name: "home"
+        }): console.log('Home location already set')})
   axios.post('/api/location', {
     latitude: coords.coords.latitude,
     longitude: coords.coords.longitude,
