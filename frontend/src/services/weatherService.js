@@ -34,16 +34,6 @@ export function getLocation() {
           ],
           name: "home"
         }): console.log('Home location already set')})
-  axios.post('/api/location', {
-    latitude: coords.coords.latitude,
-    longitude: coords.coords.longitude,
-    type: "Point",
-    coordinates: [
-      coords.coords.latitude,
-      coords.coords.longitude
-    ],
-    name: "home"
-  })
 })().then(() => {
   console.log("done")
 }).catch((err) => {
