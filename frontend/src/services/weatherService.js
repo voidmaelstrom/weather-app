@@ -22,9 +22,9 @@ export function getLocation() {
   localStorage.setItem("lat", coords.coords.latitude)
   localStorage.setItem("long", coords.coords.longitude)
   console.log(coords);
-  axios.get(`${process.env.MONGODB_URL}/api/location/name/home`)
+  axios.get(`${process.env.WEATHER_APP_API_URL}/api/location/name/home`)
        .then(response => {response.data.length === 0 ? 
-        axios.post(`${process.env.MONGODB_URL}/api/location`, {
+        axios.post(`${process.env.WEATHER_APP_API_URL}/api/location`, {
           latitude: coords.coords.latitude,
           longitude: coords.coords.longitude,
           type: "Point",
