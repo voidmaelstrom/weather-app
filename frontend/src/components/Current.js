@@ -38,7 +38,7 @@ export default function Current() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Header>{key}</Card.Header>
-                                        <Card.Text>
+                                        <Card.Text  style={{ fontSize: "23px" }}>
                                             <p>{weatherData[key]}</p>
                                         </Card.Text>
                                     </Card.Body>
