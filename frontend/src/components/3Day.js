@@ -21,7 +21,6 @@ export default function ThreeDay() {
       
         axios.request(options).then((response) => {
             setWeatherData(response.data)
-            console.log(response.data)
         }).catch((error) => {
             console.error(error)
         })
