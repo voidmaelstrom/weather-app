@@ -1,8 +1,9 @@
 import axios from "axios";
+import env from "react-dotenv";
 
 export const getHomeLocation = async () => {
   try {
-    const response = await axios.get(`/api/location/name/home`);
+    const response = await axios.get(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location/name/home`);
     console.log(`${response.data[0].latitude},${response.data[0].longitude}`);
     return String(`${response.data[0].latitude},${response.data[0].longitude}`)
   } catch(error) {
@@ -21,7 +22,7 @@ export const getHomeLocation = async () => {
 
 export const getAllLocations = async () => {
   try {
-    const response = await axios.get(`/api/location`);
+    const response = await axios.get(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location`);
     console.log(response);
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
@@ -39,7 +40,7 @@ export const getAllLocations = async () => {
 
 export const getLocationById = async (id) => {
   try {
-    const response = await axios.get(`/api/location/${id}`);
+    const response = await axios.get(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location/${id}`);
     console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
@@ -57,7 +58,7 @@ export const getLocationById = async (id) => {
 
 export const getLocationByName = async (name) => {
   try {
-    const response = await axios.get(`/api/location/name/${name}`);
+    const response = await axios.get(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location/name/${name}`);
     console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
@@ -75,7 +76,7 @@ export const getLocationByName = async (name) => {
 
 export const putLocationById = async (id) => {
   try {
-    const response = await axios.put(`/api/location/${id}`);
+    const response = await axios.put(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location/${id}`);
     console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
@@ -93,7 +94,7 @@ export const putLocationById = async (id) => {
 
 export const postLocation = async (locationBody) => {
   try {
-    const response = await axios.post(`/api/location`, locationBody);
+    const response = await axios.post(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location`, locationBody);
     console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
@@ -111,7 +112,7 @@ export const postLocation = async (locationBody) => {
 
 export const delLocation = async (id) => {
   try {
-    const response = await axios.delete(`/api/location/${id}`);
+    const response = await axios.delete(`${process.env.REACT_APP_WEATHER_APP_API_URL}/api/location/${id}`);
     console.log(response)
   } catch(error) {
     if (error.response) { // get response with a status code not in range 2xx
