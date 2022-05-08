@@ -18,6 +18,7 @@ import SevenDay from './7Day.js';
 import Search from './Search.js';
 import { getLocation } from '../services/weatherService';
 
+// Get home location set
 getLocation();
 
 const NavBar = () => {
@@ -43,7 +44,7 @@ const NavBar = () => {
     const getWeatherForecast = () => {
       const options = {
           method: 'GET',
-          url: `${process.env.WEATHER_APP_API_URL}/api/external/forecast`,
+          url: `${process.env.REACT_APP_WEATHER_APP_API_URL}/api/external/forecast`,
           params: {latLong: `${search}`},
       }
     

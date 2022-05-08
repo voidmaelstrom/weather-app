@@ -15,7 +15,7 @@ export default function Alerts () {
     const getCurrentWeather = () => {
         const options = {
             method: 'GET',
-            url: `${process.env.WEATHER_APP_API_URL}/api/external/forecast`,
+            url: `${process.env.REACT_APP_WEATHER_APP_API_URL}/api/external/forecast`,
             params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`},
         }
       

@@ -15,7 +15,7 @@ export default function History () {
     const getWeatherHistory = () => {
         const options = {
             method: 'GET',
-            url: `${process.env.WEATHER_APP_API_URL}/api/external/history`,
+            url: `${process.env.REACT_APP_WEATHER_APP_API_URL}/api/external/history`,
             params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
             timeRange: 'last4days'},        
         }
