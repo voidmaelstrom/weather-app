@@ -39,6 +39,7 @@ Example object in Mongo:
 We originally had plans to put together some features supporting retrieval of weather data stored and be able to compare with current
 data; we just never had the time to build it and instead decided to leverage more with what the API provided already.
 
+
 ### API (Backend) Internal Routes
 | Method |           Path           |                      Purpose                     |
 |:------:|:------------------------:|:------------------------------------------------:|
@@ -50,6 +51,7 @@ data; we just never had the time to build it and instead decided to leverage mor
 |   PUT  |     /api/location/:id    |             Update a location by Id              |
 | DELETE |     /api/location/:id    |              Delete a location by Id             |
 
+
 ### API (Backend) External Routes to Visual Crossing
 | Method |           Path           |                      Purpose                     |
 |:------:|:---------------------------------:|:--------------------------------------------------------------------:|
@@ -57,13 +59,13 @@ data; we just never had the time to build it and instead decided to leverage mor
 |   GET  |   /api/external/current/:params   |  Get external current data based on time ranges, location, and auth  |
 |   GET  |   /api/external/history/:params   |  Get external data based on time ranges, location, and auth          |
 
+
 ### Frontend Routes
 | Method |           Path           |                      Purpose                     |
 |:------:|:---------------------------------:|:--------------------------------------------------------------------:|
 |   GET  |   /                               |  Weather App Home Page (Current conditions and 5-day forecast)       |
 |   GET  |   /current                        |  Shows Current conditions                                            |
 |   GET  |   /alerts                         |  Show any alerts in your current area                                |
-|   GET  |   /history                        |  Show history for past 5-day forecast                                |
 |   GET  |   /history                        |  Show history for past 5-day forecast                                |
 |   GET  |   /3day                           |  Show history for next 3-day forecast                                |
 |   GET  |   /5day                           |  Show history for next 5-day forecast                                |
