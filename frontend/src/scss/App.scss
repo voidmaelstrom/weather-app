@@ -1,0 +1,197 @@
+@mixin flex_center($direction: row) {
+  display: flex;
+}
+
+@mixin flex_with_color($direction: row, $color: white) {
+  @include flex_center($direction);
+  background-color: $color;
+}
+
+@mixin colors($color: #424242, $background-color: red) {
+  background-color: $background-color;
+  color: $color;
+}
+
+@mixin hover_button() {
+  background-color: green;
+  width: 250px;
+}
+
+.div-with-button {
+  @include flex_with_color;
+
+  button {
+    @include colors(#424242, blue);
+
+    &:hover {
+      @include hover_button();
+    }
+  }
+}
+
+%flex {
+  display: flex;
+}
+
+.some-class {
+  height: 50%;
+  background-color: white;
+}
+
+%flex_with_color {
+  @extend %flex;
+  @extend .some-class;
+}
+
+%button_styles {
+  height: 50px;
+  width: 200px;
+}
+
+div {
+  @extend %flex_with_color;
+
+  button {
+    @extend %button_styles;
+    color: #424242;
+    background-color: #d966fb;
+  }
+}
+
+.App {
+  background-color: rgb(199, 199, 199);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.Display {
+  height: 100vh;
+}
+
+.home {
+  padding-top: 10vh;
+  font-size: .8vw;
+  align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.current {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 2.5vh;  align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.alerts {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 1.5vw;
+  align-content: center;
+  color: rgb(243, 72, 72);
+}
+
+.noAlerts {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 2vw;
+  align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.radar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: .8vw;
+  align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 17px; align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.history {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 17px; align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.threeDay {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 17px; align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.fiveDay {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 17px; align-content: center;
+  color: rgb(72, 146, 243);
+}
+
+.sevenDay {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 10vh;
+  font-size: 17px; align-content: center;
+  color: rgb(72, 146, 243);
+}

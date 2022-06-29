@@ -1,3 +1,35 @@
+.div-with-button {
+  display: flex;
+  background-color: white;
+}
+.div-with-button button {
+  background-color: blue;
+  color: #424242;
+}
+.div-with-button button:hover {
+  background-color: green;
+  width: 250px;
+}
+
+div {
+  display: flex;
+}
+
+.some-class, div {
+  height: 50%;
+  background-color: white;
+}
+
+div button {
+  height: 50px;
+  width: 200px;
+}
+
+div button {
+  color: #424242;
+  background-color: #d966fb;
+}
+
 .App {
   background-color: rgb(199, 199, 199);
   -webkit-background-size: cover;
@@ -21,14 +53,13 @@
   color: white;
 }
 
-
 .Display {
   height: 100vh;
 }
 
 .home {
   padding-top: 10vh;
-  font-size: .8vw;
+  font-size: 0.8vw;
   align-content: center;
   color: rgb(72, 146, 243);
 }
@@ -46,7 +77,8 @@
   -ms-align-items: flex-start;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: 2.5vh;  align-content: center;
+  font-size: 2.5vh;
+  align-content: center;
   color: rgb(72, 146, 243);
 }
 
@@ -81,7 +113,7 @@
   -ms-align-items: flex-start;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: .8vw;
+  font-size: 0.8vw;
   align-content: center;
   color: rgb(72, 146, 243);
 }
@@ -92,7 +124,8 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: 17px; align-content: center;
+  font-size: 17px;
+  align-content: center;
   color: rgb(72, 146, 243);
 }
 
@@ -102,7 +135,8 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: 17px; align-content: center;
+  font-size: 17px;
+  align-content: center;
   color: rgb(72, 146, 243);
 }
 
@@ -112,7 +146,8 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: 17px; align-content: center;
+  font-size: 17px;
+  align-content: center;
   color: rgb(72, 146, 243);
 }
 
@@ -122,7 +157,8 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: 17px; align-content: center;
+  font-size: 17px;
+  align-content: center;
   color: rgb(72, 146, 243);
 }
 
@@ -132,6 +168,9 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 10vh;
-  font-size: 17px; align-content: center;
+  font-size: 17px;
+  align-content: center;
   color: rgb(72, 146, 243);
 }
+
+/*# sourceMappingURL=App.css.map */
