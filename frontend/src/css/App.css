@@ -1,3 +1,19 @@
+html, body {
+  height: 100%;
+}
+html #root, body #root {
+  height: 1%;
+}
+html .div-with-button, body .div-with-button {
+  background-color: red;
+}
+html .div-with-button button, body .div-with-button button {
+  background-color: rgb(187, 0, 255);
+}
+html .div-with-button button:hover, body .div-with-button button:hover {
+  background-color: rgb(255, 220, 109);
+}
+
 .div-with-button {
   display: flex;
   background-color: white;

@@ -1,3 +1,34 @@
+$height: 100%;
+
+$background_color: green;
+// will override "green" color
+$background_color: red;
+
+$button_color: yellow;
+$button_color: rgb(187, 0, 255);
+
+html, body {
+  height: $height;
+
+  #root {
+    $height: 1%;
+    height: $height;
+  }
+
+  .div-with-button {
+    background-color: $background_color;
+
+    button {
+      background-color: $button_color;
+
+      $button_color: rgb(255, 220, 109);
+
+      &:hover {
+        background-color: $button_color;
+      }
+    }
+  }
+}
 @mixin flex_center($direction: row) {
   display: flex;
 }
