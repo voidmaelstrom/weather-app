@@ -1,11 +1,12 @@
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
+import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
 
-export default function Search (props) {
+export default function Search (props: any) {
     return(
         <div className="search">
-            {props.weatherData && props.weatherData.days ? props.weatherData.days.map(weather => {
+            {props.weatherData && props.weatherData.days ? props.weatherData.days.map((weather: { datetimeEpoch: Key | null | undefined; datetime: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; precipprob: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; tempmax: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; tempmin: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => {
                 return <Row key={weather.datetimeEpoch} xs={1} md={1} className="g-4" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>

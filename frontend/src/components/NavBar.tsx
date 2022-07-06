@@ -8,14 +8,14 @@ import FormControl from 'react-bootstrap/FormControl';
 import Form from 'react-bootstrap/Form'
 import Container  from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Home from './Home.js';
-import Current from './Current.js';
-import Alerts from './Alerts.js';
-import History from './History.js';
-import ThreeDay from './3Day.js';
-import FiveDay from './5Day.js';
-import SevenDay from './7Day.js';
-import Search from './Search.js';
+import Home from './Home';
+import Current from './Current';
+import Alerts from './Alerts';
+import History from './History';
+import ThreeDay from './3Day';
+import FiveDay from './5Day';
+import SevenDay from './7Day';
+import Search from './Search';
 import { getLocation } from '../services/weatherService';
 
 // Get home location set
@@ -35,9 +35,9 @@ const NavBar = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search]);
   
-    const handleSearch = (e, location) => {
-      e.preventDefault()
-      setSeatrch(location)
+    const handleSearch = (event: React.SyntheticEvent<HTMLFormElement>) => {
+      event.preventDefault()
+    //   setSeatrch(location)
       navigate('/search')
     }
   
@@ -78,7 +78,7 @@ const NavBar = () => {
                             placeholder="Search Here"
                             className="me-2"
                             aria-label="Search"
-                            onClick={(e) => handleSearch(e, e.target.value)} />
+                            onClick={event => handleSearch} />
                         <Button variant="outline-success">Search</Button>
                     </Form>
                 </Container>

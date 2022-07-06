@@ -1,8 +1,8 @@
 
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Current from './Current.js';
-import FiveDay from './5Day.js';
+import Current from './Current';
+import FiveDay from './5Day';
 
 export default function Home () {
     return(

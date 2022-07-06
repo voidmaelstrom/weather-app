@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState, useEffect } from "react";
 
-export default function FiveDay () {
+export default function SevenDay (props: any) {
 
     const [weatherData, setWeatherData] = useState({});
 
@@ -17,7 +17,7 @@ export default function FiveDay () {
             method: 'GET',
             url: `${process.env.REACT_APP_WEATHER_APP_API_URL}/api/external/forecast`,
             params: {latLong: `${localStorage.getItem("lat")},${localStorage.getItem("long")}`,
-                     timeRange: 'next4days'},
+                     timeRange: 'next6days'},
         }
       
         axios.request(options).then((response) => {
@@ -29,16 +29,16 @@ export default function FiveDay () {
     }
 
     return (
-        <div className="fiveDay">
-            {weatherData && weatherData.days ? weatherData.days.map(weather => {
+        <div className="sevenDay">
+            {weatherData && props.weatherData.days ? props.weatherData.days.map((weather: { datetimeEpoch: React.Key | null | undefined; datetime: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; description: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; precipprob: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; tempmax: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; tempmin: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; }) => {
                 return <Row key={weather.datetimeEpoch} xs={1} md={1} className="d-flex p-2" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
-                    <Card style={{ width: "15rem", height: "22rem" }} className="cards">
+                    <Card style={{ width: "15rem"}} className="cards">
                         <Card.Body>
                             <Card.Header style={{ fontSize: "23px" }}>{weather.datetime}</Card.Header>
                             <Card.Text>
-                            <div>{weather.description}</div>
+                                <div>{weather.description}</div>
                                 <hr></hr>
                                 <div>Chance of precipitation</div>
                                 <div> {weather.precipprob}% </div>

@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState, useEffect } from "react";
 
-export default function Current() {
+export default function Current(props: any) {
     const [weatherData, setWeatherData] = useState({});
 
     const currentKeys = ['conditions','temp', 'feelslike', 'windspeed', 'humidity', 'sunrise', 'sunset']
@@ -28,7 +28,8 @@ export default function Current() {
         })
     }
     const getDisplay = () => {
-        const results = []
+        const results: JSX.Element[] = []
+        
         if (weatherData) {
             Object.keys(weatherData).map((key) => {
                 if (currentKeys.includes(key)) {
@@ -39,7 +40,7 @@ export default function Current() {
                                     <Card.Body>
                                         <Card.Header>{key}</Card.Header>
                                         <Card.Text style={{ fontSize: "23px" }}>
-                                            <p>{weatherData[key]}</p>
+                                            <p>{props.weatherData[key]}</p>
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

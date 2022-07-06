@@ -4,8 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState, useEffect } from "react";
 
-export default function History () {
-
+export default function History (props: any) {
+   
     const [weatherData, setWeatherData] = useState({});
 
     useEffect(() => {
@@ -29,8 +29,9 @@ export default function History () {
     }
 
     return (
+    
         <div className="history">
-            {weatherData && weatherData.days ? weatherData.days.map(weather => {
+            {weatherData && props.weatherData.days ? props.weatherData.days.map((weather: { datetimeEpoch: React.Key | null | undefined; datetime: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; conditions: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; tempmax: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; tempmin: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; precip: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
                 return <Row key={weather.datetimeEpoch} xs={1} md={1} className="d-flex p-2" >
                 {Array.from({ length: 1 }).map((_, idx) => (
                     <Col>
