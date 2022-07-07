@@ -4,8 +4,8 @@
   "description": "Backend for Weather App",
   "main": "index.js",
   "engines": {
-    "node": "17.x",
-    "npm": "8.5.1"
+    "node": "18.x",
+    "npm": "8.x"
   },
   "scripts": {
     "start": "NODE_ENV=production PORT=8000 serve -s client/build & node app.js",
