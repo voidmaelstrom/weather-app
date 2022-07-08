@@ -127,7 +127,7 @@ You should see this return in json:
 }
 ```
 
-## Steps to setup app for development
+## Steps to setup app for deployment
 
 1.) cd into the `frontend` directory and setup a `.env` file with the following:
 
@@ -167,6 +167,8 @@ PORT=5000
 ```
 npm start
 ```
+
+5.) Open browser to http://localhost:8000
 
 This should execute the app locally under a single directory (in this case, backend)
 Additional steps will need to be performed for setting up the env vars for the deployment since
